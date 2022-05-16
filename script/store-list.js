@@ -37,14 +37,12 @@ function SendValue(target){
     var tmp = {};
     tmp['가게이름'] = target[0].textContent;
     tmp['메뉴'] = target[1].textContent;
-    tmp['음식가격'] = target[2].childNodes[0].textContent;
+    tmp['음식가격'] = target[2].childNodes[0].attributes.value.value;
     tmp['최소주문금액'] = target[2].childNodes[1].textContent;
-    tmp['배달비'] = target[2].childNodes[0].textContent;
+    tmp['배달비'] = target[2].childNodes[2].attributes.value.value;
     tmp['전화번호'] = target[3].textContent;
     tmp['주소'] = target[4].textContent;
-    tmp['분류1'] = target[5].childNodes[0].textContent;
-    tmp['분류2'] = target[5].childNodes[1].textContent;
-    tmp['분류3'] = target[5].childNodes[2].textContent;
+    tmp['분류'] = [target[5].childNodes[0].textContent,target[5].childNodes[1].textContent,target[5].childNodes[2].textContent];
 
     localStorage.setItem("store-info", JSON.stringify(tmp));    
 }
@@ -146,16 +144,13 @@ function DefaultRefresh(){
         };
     }
 
-    // for(var z = 0; z < Diliverylist.length; z++){
-    //     if(Diliverylist[z].attributes.value.value == '-1'){
-    //         Diliverylist[z].innerHTML = '배달 X';
-    //     }
-    //     var Dilivery_str = Diliverylist[z].attributes.value.value.split('~')
-    //     console.log("ㅡㅡㅡ" + Diliverylist[z].innerHTML + "ㅡㅡㅡ");
-    //     for(var a = 0; a < Dilivery_str.length; a++){
-    //         console.log(Dilivery_str[a]);
-    //     }
-    // }
+     for(var z = 0; z < Diliverylist.length; z++){
+         if(Diliverylist[z].attributes.value.value == '-1'){
+             console.log(Diliverylist[z].innerHTML);
+             Diliverylist[z].innerHTML = '배달 X';
+
+         }
+     }
 }
 
 

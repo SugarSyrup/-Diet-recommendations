@@ -9,9 +9,6 @@
     <link rel="stylesheet" href="style/linkstore-list.css?after" />
     <title>Document</title>
 
-    <link rel="stylesheet" href="style/home_style.css" />
-    <link rel="stylesheet" href="style/header.css" />
-    <title>App</title>
     <!-- favicon-awesome -->
     <link
       rel="apple-touch-icon"
@@ -169,10 +166,6 @@
           }
         ?>
     </section>
-
-    <div id="splash-screen">
-      <img src="imgaes/logo/logo.png" alt="logo" />
-    </div>
 
     <section class="stores-section"></section>
 

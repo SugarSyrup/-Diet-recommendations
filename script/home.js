@@ -91,7 +91,6 @@ document.addEventListener('touchstart',function(event){
         setTimeout(function(){
             document.querySelector('.start-logo').style.display = 'none';
         }, 2000);
-        //animation- duration/timing-function
     }
 })
 
@@ -102,6 +101,5 @@ document.addEventListener('click',function(event){
         setTimeout(function(){
             document.querySelector('.start-logo').style.display = 'none';
         }, 2000);
-        //animation- duration/timing-function
     }
 })
