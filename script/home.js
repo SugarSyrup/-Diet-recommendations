@@ -79,3 +79,29 @@ diet_button.addEventListener('click', function(evnet){
     event.preventDefault();
     location.href='linkstore.html';
 })
+
+
+//touch & click event
+var touchEvent = false;
+
+document.addEventListener('touchstart',function(event){
+    if(!touchEvent){
+        touchEvent=true;
+        document.querySelector('.start-logo').style.animation = '2s linear 0s 1 normal forwards running fadeout';
+        setTimeout(function(){
+            document.querySelector('.start-logo').style.display = 'none';
+        }, 2000);
+        //animation- duration/timing-function
+    }
+})
+
+document.addEventListener('click',function(event){
+    if(!touchEvent){
+        touchEvent=true;
+        document.querySelector('.start-logo').style.animation = '2s linear 0s 1 normal forwards running fadeout';
+        setTimeout(function(){
+            document.querySelector('.start-logo').style.display = 'none';
+        }, 2000);
+        //animation- duration/timing-function
+    }
+})

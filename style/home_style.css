@@ -86,3 +86,42 @@ input{
     cursor:pointer;
     animation: hoverBigger 1s ease-in-out forwards;
 }
+
+.start-logo{
+    width:100vw;
+    height:100vh;
+
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    background-color: white;
+
+    position: absolute;
+    top:0;
+    left: 0;
+    animation-fill-mode: forwards;
+}
+
+.start-logo img{
+    width:240px;    
+    width:15rem;
+}
+
+.start-logo .start-logo__txt {
+    font-size:22px;
+    font-size:1.4rem;
+    margin-top:10px;
+    font-weight:bolder;
+}
+
+
+@keyframes fadeout {
+    from {
+        opacity: 1;
+    }
+    to {
+        opacity: 0;
+    }
+}
