@@ -1,0 +1,88 @@
+input{
+    border:none;
+}
+
+.header{
+    width:100%;
+    border-bottom: 2px solid gray;
+}
+
+.header .title{
+    color:#2C5F2D;
+    font-weight:bolder;
+}
+
+.user-section{
+    width: 90%;
+}
+
+.user-section .u-section{
+    display:flex;
+    flex-direction:column;
+    margin-bottom:30px;
+}
+
+.user-section .u-section select{
+    border:none;
+    color:gray;
+}
+
+.user-section .u-section input,
+.user-section .u-section select{
+    width:100%;
+    height:40px;
+
+    font-size:17px;
+    border-bottom: 2px solid gray;
+}
+
+.user-section .u-section input:focus,
+.user-section .u-section select:focus{
+    outline:none;
+    border-bottom: 3px solid #2c5f2d;
+}
+
+
+.user-section .u-section .errormessage{
+    display:none;
+    color:red;
+}
+
+
+.buttons-section{
+    display:flex;
+    flex-direction:column;
+    align-items: center;
+    justify-content: space-between;
+    width:90%;
+}
+
+.buttons-section .link-button{
+    background-color: #97BC62;
+    background-color: hsl(85,40%,56%);
+    color:black;
+
+    outline:none;
+    border:none;
+    border-radius: 15px;
+
+    width:95%;
+    height:50px;
+    margin-bottom:10px;
+
+    font-size:20px;
+    font-weight:bolder;
+}
+
+@keyframes hoverBigger{
+    100%{
+        width:100%;
+        height:55px;
+    }
+}
+
+
+.buttons-section .link-button:hover{
+    cursor:pointer;
+    animation: hoverBigger 1s ease-in-out forwards;
+}

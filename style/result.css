@@ -1,0 +1,95 @@
+.main-content{
+    display:flex;
+    flex-direction:column;
+    justify-content: space-between;
+    align-items:center;
+
+    width:100%;
+}
+
+.main-content .result-section{
+    display:flex;
+    flex-direction:row;
+    justify-content: space-between;
+    align-items: center;
+    
+    width:80%;
+
+    margin-bottom:30px;
+    padding-bottom:10px;
+    padding-left:10px;
+    padding-right:10px;
+    border-bottom: 2px solid gray;
+
+    font-size:19px;
+    font-size:1.18rem;
+    
+}
+
+.main-content .result-section .result-id{
+    color:gray;
+}
+
+.main-content .result-section .result-score{
+    font-weight:bolder;
+}
+
+/*content-text*/
+
+.content-text{
+    width:95%;
+    display:flex;
+    flex-direction:column;
+    justify-content: space-between;
+    align-items: flex-end;
+
+    color:gray;
+    font-size:12px;
+    font-weight:bold;
+}
+
+.content-text .content-text__fruit{
+    margin-bottom:3px;
+}
+
+.content-text .content-text__milk{
+
+}
+
+.buttons{
+    width:100%;
+
+    display:flex;
+    flex-direction:column;
+    align-items: center;
+
+    margin-top:20px;
+}
+
+.buttons .link-button{
+    background-color: #97BC62;
+    color:black;
+
+    outline:none;
+    border:none;
+    border-radius: 15px;
+
+    width:85%;
+    height:50px;
+    margin-bottom:10px;
+
+    font-size:20px;
+    font-weight:bolder;
+}
+
+@keyframes hoverBigger{
+    100%{
+        width:100%;
+        height:55px;
+    }
+}
+
+.buttons .link-button:hover{
+    cursor:pointer;
+    animation: hoverBigger 1s ease-in-out forwards;
+}

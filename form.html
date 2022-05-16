@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style/header.css" />
+    <link rel="stylesheet" href="style/form.css" />
+    <link rel="stylesheet" href="style/test.css" />
+    <title>Form</title>
+  </head>
+  <body>
+    <header class="header">
+      <span class="title">식단 개선</span>
+      <section class="explain-section"></section>
+    </header>
+
+    <section class="under-header">
+      <span class="under-text">*하루 식사 기준입니다</span>
+    </section>
+    <!--checkbox 다시 체크시 체크 해제가 안됨 >> js-->
+    <section class="main-content">
+      <section class="grains checkboxform" id="grains">
+        <span class="checkbox-title">곡류군</span>
+        <section class="defaultRange">
+          <section class="range-values">
+            <span>0</span>
+            <span>3</span>
+            <span>6</span>
+          </section>
+          <input class="rangeInput" type="range" min="0" max="6" step="1" />
+        </section>
+      </section>
+
+      <section class="protein checkboxform">
+        <span class="checkbox-title">고기 · 생선 · 계란 · 콩류</span>
+        <section class="defaultRange">
+          <section class="range-values">
+            <span>0</span>
+            <span>4</span>
+            <span>8</span>
+          </section>
+          <input class="rangeInput" type="range" min="0" max="8" step="1" />
+        </section>
+      </section>
+      <!-- <section class="grains checkboxform" id="grains">
+        <span class="checkbox-title">곡류군 </span>
+        <section class="checkboxlist">
+          <input type="checkbox" id="grains1" value="rice" />
+          <label for="grains1">밥</label>
+          <input type="checkbox" id="grains2" value="noodle" />
+          <label for="grains2">면</label>
+          <input type="checkbox" id="grains3" value="ricecake" />
+          <label for="grains2">떡</label>
+          <input type="checkbox" id="grains4" value="potato" />
+          <label for="grains3">구황작물(...)</label>
+          <input type="checkbox" id="grains5" value="bread" />
+          <label for="grains4">빵</label>
+        </section>
+      </section>
+      <section class="grains-score"></section>
+
+      <section class="protein checkboxform">
+        <span class="checkbox-title">고기 · 생선 · 계란 · 콩류 </span>
+        <section class="checkboxlist">
+          <input type="checkbox" id="protein1" value="meat" />
+          <label for="protein1">고기</label>
+          <input type="checkbox" id="protein2" value="fish" />
+          <label for="protein2">생선</label>
+          <input type="checkbox" id="protein3" value="egg" />
+          <label for="protein3">달걀</label>
+          <input type="checkbox" id="protein4" value="bean" />
+          <label for="protein4">콩</label>
+        </section>
+      </section>
+      <section class="protein-score"></section> -->
+
+      <section class="vegetable checkboxform">
+        <span class="checkbox-title">야채류</span>
+        <section class="defaultRange">
+          <section class="range-values">
+            <span>0</span>
+            <span>4</span>
+            <span>8</span>
+          </section>
+          <input class="rangeInput" type="range" min="0" max="8" step="1" />
+        </section>
+      </section>
+
+      <section class="fruit checkboxform">
+        <span class="checkbox-title">과일류</span>
+        <section class="value-button-section">
+          <input type="button" value="섭취O" id="fruit-true" />
+          <input type="button" value="섭취X" id="fruit-false" />
+        </section>
+      </section>
+
+      <section class="milk checkboxform">
+        <span class="checkbox-title">우유 및 유제품</span>
+        <section class="value-button-section">
+          <input type="button" value="섭취O" id="milk-true" />
+          <input type="button" value="섭취X" id="milk-false" />
+        </section>
+      </section>
+    </section>
+
+    <section class="result"></section>
+
+    <section class="buttons">
+      <button class="form-button" id="form-button">결과 확인하기</button>
+    </section>
+
+    <script src="script/form.js"></script>
+  </body>
+</html>

@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://hangeul.pstatic.net/hangeul_static/css/nanum-square.css"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style/home_style.css" />
+    <link rel="stylesheet" href="style/header.css" />
+    <title>App</title>
+  </head>
+  <body>
+    <!-- header -->
+    <header class="header">
+      <span class="title">개인 정보</span>
+    </header>
+
+    <!-- infomation section-->
+    <section class="user-section">
+      <section class="username-section u-section">
+        <input
+          class="user-input"
+          type="text"
+          id="user-name"
+          placeholder="이름"
+        />
+        <span class="errormessage" id="nameError">필수 입력 칸입니다!</span>
+      </section>
+      <section class="userage-section u-section">
+        <input
+          class="user-input"
+          type="text"
+          id="user-birth"
+          placeholder="생년/월/일"
+          onfocus="(this.type='date')"
+          onblur="(this.type='text')"
+        />
+        <span class="errormessage" id="birthError">필수 입력 칸입니다!</span>
+      </section>
+      <section class="u-section usergender-section">
+        <select
+          class="user-select"
+          id="gender"
+          name="usergender"
+          aria-label="성별"
+        >
+          <option value selected>성별</option>
+          <option value="Man">남성</option>
+          <option value="Woman">여성</option>
+        </select>
+        <span class="errormessage" id="genderError">필수 입력 칸입니다!</span>
+      </section>
+      <section class="userplace-section u-section">
+        <input
+          class="user-input"
+          type="text"
+          id="user-place"
+          placeholder="거주지"
+        />
+        <span class="errormessage" id="placeError">필수 입력 칸입니다!</span>
+      </section>
+    </section>
+
+    <!-- buttons section -->
+    <section class="buttons-section">
+      <button class="link-button" id="form-linkButton">식단개선</button>
+      <button class="link-button" id="5g-linkButton">5G식사</button>
+      <button class="link-button" id="diet-linkButton">다이어트</button>
+    </section>
+
+    <script src="script/home.js"></script>
+  </body>
+</html>

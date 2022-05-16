@@ -1,0 +1,94 @@
+
+
+.store-info-section{
+    width:100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.store-info{
+    width:90%;
+    position:relative;
+
+    margin-top:20px;
+
+    display:flex;
+    flex-direction:column;
+
+    padding-bottom:10px;
+    cursor:pointer;
+
+    border-bottom:1px solid rgb(179, 179, 179);
+}
+
+.store-info .store-info__Name{
+    font-size:17px;
+    font-weight: bolder;
+    letter-spacing: -1px;
+    margin-bottom:5px;
+}
+
+.store-info .store-info__Menu{
+    font-size:15px;
+    font-weight:lighter;
+    margin-bottom:5px;
+}
+
+.store-info .store-info-charge{
+    color:gray;
+    font-size:13px;
+    font-weight:lighter;
+    
+    display:flex;
+    justify-content: flex-start;
+
+    
+    margin-bottom:5px;
+}
+
+.store-info .store-info-charge .store-info__MenuCharge{
+    margin-right:10px;
+}
+
+.store-info .store-info-charge .store-info__LessDiliveryCharge {
+
+}
+
+.store-info .store-info-charge .store-info__DiliveryCharge{
+
+}
+
+.store-info .store-info__Number{
+
+}
+
+.store-info .store-info__Address{
+
+}
+
+.store-info .store-info-tags{
+
+}
+
+.store-info .store-info-tags .store-info__tag{
+    display: inline-block;
+    width: 18%;
+    background-color: #97BC62;
+    font-size: 14px;
+    text-align: center;
+    color: white;
+    font-weight: bold;
+    border-radius: 10px;
+    margin-right: 10px;
+}
+
+.store-info .display-none{
+    display:none;
+}
+
+
+
+.abs-none{
+    display:none;
+}
