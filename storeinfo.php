@@ -1,196 +1,41 @@
 <?php
-  $conn = mysqli_connect(
-    'localhost',
-    'nabij',
-    'gyeon3542!',
-    'nabij');
-    
-  echo $_GET['name'];
-  echo $_GET['flag'];
-    
-  function php_func($storename){
-    $sql = "SELECT * FROM storeinfo WHERE 가게이름='" + $storename + "'";
-    $result = mysqli_query($conn, $sql);
-    echo ("<script language=javascript> getstore($result);</script>");
-  }
+   $conn = mysqli_connect(
+     'localhost',
+     'nabij',
+     'gyeon3542!',
+     'nabij');
+
+   $astorename = $_GET['storename'];
+  
+   //echo($astorename);
+   $sql = "SELECT * FROM storeinfo WHERE 가게이름 = '$astorename'";
+
+  //$sql = 'SELECT * FROM storeinfo';
+   //echo ($sql);
+   $result = mysqli_query($conn, $sql);
+   //echo($result);
+  
+   $result_data = array();
+   while($row = mysqli_fetch_array($result)){
+     array_push($result_data, array(
+       'storename'=>$row['가게이름'],
+       'menu'=>$row['메뉴'],
+       'price'=>$row['음식가격'],
+       'tag' => array($row['분류1'],$row['분류2'],$row['분류3']),
+      ));
+   }
+
+   echo json_encode(array("result"=>$result_data),JSON_UNESCAPED_UNICODE);
 ?>
 
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="style/header.css?after" />
-    <link rel="stylesheet" href="style/storeinfo.css?after" />
-    <title>가게 정보</title>
-    <!-- favicon-awesome -->
-    <link
-      rel="apple-touch-icon"
-      sizes="57x57"
-      href="images/logo/favicon/apple-icon-57x57.png"
-    />
-    <link
-      rel="apple-touch-icon"
-      sizes="60x60"
-      href="images/logo/favicon//apple-icon-60x60.png"
-    />
-    <link
-      rel="apple-touch-icon"
-      sizes="72x72"
-      href="images/logo/favicon//apple-icon-72x72.png"
-    />
-    <link
-      rel="apple-touch-icon"
-      sizes="76x76"
-      href="images/logo/favicon//apple-icon-76x76.png"
-    />
-    <link
-      rel="apple-touch-icon"
-      sizes="114x114"
-      href="images/logo/favicon//apple-icon-114x114.png"
-    />
-    <link
-      rel="apple-touch-icon"
-      sizes="120x120"
-      href="images/logo/favicon//apple-icon-120x120.png"
-    />
-    <link
-      rel="apple-touch-icon"
-      sizes="144x144"
-      href="images/logo/favicon//apple-icon-144x144.png"
-    />
-    <link
-      rel="apple-touch-icon"
-      sizes="152x152"
-      href="images/logo/favicon//apple-icon-152x152.png"
-    />
-    <link
-      rel="apple-touch-icon"
-      sizes="180x180"
-      href="images/logo/favicon//apple-icon-180x180.png"
-    />
-    <link
-      rel="icon"
-      type="image/png"
-      sizes="192x192"
-      href="images/logo/favicon//android-icon-192x192.png"
-    />
-    <link
-      rel="icon"
-      type="image/png"
-      sizes="32x32"
-      href="images/logo/favicon//favicon-32x32.png"
-    />
-    <link
-      rel="icon"
-      type="image/png"
-      sizes="96x96"
-      href="images/logo/favicon//favicon-96x96.png"
-    />
-    <link
-      rel="icon"
-      type="image/png"
-      sizes="16x16"
-      href="images/logo/favicon//favicon-16x16.png"
-    />
-    <link rel="manifest" href="images/logo/favicon//manifest.json" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    
-    <meta name="msapplication-TileColor" content="#ffffff" />
-    <meta
-      name="msapplication-TileImage"
-      content="images/logo/favicon//ms-icon-144x144.png"
-    />
-
-    <meta name="theme-color" content="#ffffff" />
-  </head>
-  <body>
-    <section class="store-header-back">
-      <section class="store-header">
-        <span class="store-header__txt"></span>
-      </section>
-    </section>
-    <section class="store-info">
-      <span class="store-info__header">상세정보</span>
-      <section class="store-info-place store-info-section">
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          class="h-6 w-6"
-          fill="none"
-          viewBox="0 0 24 24"
-          stroke="currentColor"
-          stroke-width="2"
-        >
-          <path
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"
-          />
-          <path
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"
-          />
-        </svg>
-        <span class="store-info-place__txt"> 부산 사상구 대동로 63 (우)47050</span>
-      </section>
-      <section class="store-info-charge store-info-section">
-      <i class="fa-solid fa-motorcycle"></i>
-        <span class="store-info-charge__txt store-info-charge__Dtxt"></span>
-      </section>
-      <section class="store-info-charge store-info-section">
-      <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-  <path stroke-linecap="round" stroke-linejoin="round" d="M4 7v10c0 2.21 3.582 4 8 4s8-1.79 8-4V7M4 7c0 2.21 3.582 4 8 4s8-1.79 8-4M4 7c0-2.21 3.582-4 8-4s8 1.79 8 4m0 5c0 2.21-3.582 4-8 4s-8-1.79-8-4" />
-</svg>
-        <span class="store-info-charge__txt store-info-charge__Ltxt"></span>
-      </section>
-      <section class="store-info-number store-info-section">
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          class="h-6 w-6"
-          fill="none"
-          viewBox="0 0 24 24"
-          stroke="currentColor"
-          stroke-width="2"
-        >
-          <path
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"
-          />
-        </svg>
-        <span class="store-info-number__txt">051-312-9955</span>
-      </section>
-    </section>
-
-    <section class="select-menu-section menu-section">
-      <span class="select-menu-section__header menu-section__header">메뉴</span>
-      <section class="select-menu-section-txt menu-section-txt">
-          <span class="select-menu-section-txt__name menu-section__name"></span>
-        <span class="select-menu-section-txt__price menu-section__price"></span>
-      </section>
-      <section class="select-menu-section-tags menu-section-tags"></section>
-    </section>
-
-    <section class="other-menu-section menu-section">
-      <span class="ohter-menu-section__header menu-section__header">다른 메뉴</span>
-      <section class="other-menu-section-txt menu-section-txt">
-        <span class="other-menu-section-txt__name menu-section__name">딥치즈버거</span>
-        <section class="other-menu-section-tags menu-section-tags"></section>
-        <span class="other-menu-section-txt__price menu-section__price">1000원</span>
-      </section>
-    </section>
-
-    <section class="map-section" id="map-section"></section>
 
 
-    <span id="php_code"> </span>
-    <script src="script/storeinfo.js"></script>    
-    <script
-      type="text/javascript"
-      src="https://dapi.kakao.com/v2/maps/sdk.js?appkey=33aaea6470e115b9de010a37d587db78&libraries=services"
-    ></script>
-    <script src="script/Map.js"></script>
-  </body>
-</html>
+<!-- 
+// $index = $_GET['index'];
+
+// $desc = ['Best Friend', 'Favorite Language', 'Best Musician'];
+// $name = ['Aram Kim', 'Python', 'IU'];
+
+// $json = json_encode(array('desc' => $desc[$index], 'name' => $name[$index]));
+
+// echo($json); -->

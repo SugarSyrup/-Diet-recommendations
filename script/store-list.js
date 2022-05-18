@@ -47,43 +47,43 @@ function SendValue(target){
     localStorage.setItem("store-info", JSON.stringify(tmp));    
 }
 
-function sendPost(url, params) {
-    var form = document.createElement('form');
-    form.setAttribute('method', 'post'); 
-    form.setAttribute('target', '_blank'); 
-    form.setAttribute('action', url); 
-    document.charset = "UTF-8"; 
-    for (var key in params) { 
-        var hiddenField = document.createElement('input'); 
-        hiddenField.setAttribute('type', 'hidden'); 
-        hiddenField.setAttribute('name', key); 
-        hiddenField.setAttribute('value', params[key]); 
-        form.appendChild(hiddenField); 
-    } 
-    document.body.appendChild(form); 
-    form.submit(); 
-}
+// function sendPost(url, params) {
+//     var form = document.createElement('form');
+//     form.setAttribute('method', 'post'); 
+//     form.setAttribute('target', '_blank'); 
+//     form.setAttribute('action', url); 
+//     document.charset = "UTF-8"; 
+//     for (var key in params) { 
+//         var hiddenField = document.createElement('input'); 
+//         hiddenField.setAttribute('type', 'hidden'); 
+//         hiddenField.setAttribute('name', key); 
+//         hiddenField.setAttribute('value', params[key]); 
+//         form.appendChild(hiddenField); 
+//     } 
+//     document.body.appendChild(form); 
+//     form.submit(); 
+// }
 
 for(var i = 0; i < storelist.length; i++){ 
      storelist[i].addEventListener('click', function(event){
          if(event.target.parentNode.className == "store-info-charge"){
             SendValue(event.target.parentNode.parentNode.childNodes);
-            location.href='storeinfo.php';
+            location.href='storeinfo.html';
          }
          else if(event.target.parentNode.className == "store-info-tags"){
             SendValue(event.target.parentNode.parentNode.childNodes);
             // event.target.parentNode.parentNode.style.backgroundColor = "rgb(197, 192, 192)";
-            location.href='storeinfo.php';
+            location.href='storeinfo.html';
          }
          else if(event.target.className != "store-info"){
             SendValue(event.target.parentNode.childNodes);
             // event.target.parentNode.style.backgroundColor = "rgb(197, 192, 192)";
-            location.href='storeinfo.php';
+            location.href='storeinfo.html';
          }
          else{
             SendValue(event.target.childNodes);
             // event.target.style.backgroundColor = "rgb(197, 192, 192)";
-            location.href='storeinfo.php';
+            location.href='storeinfo.html';
          }
      })
 

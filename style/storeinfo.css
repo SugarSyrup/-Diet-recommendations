@@ -60,12 +60,12 @@
     align-items: center;
 
     width:90%;
-    margin-top:.4rem;
+    margin-top:10px;
 }
 
-.store-info .store-info-section svg{
+.store-info .store-info-section svg,
+.store-info .store-info-section i{
     width:20px;
-    height:30px;
 }
 
 .store-info .store-info-section span,
@@ -91,13 +91,17 @@
 
 }
 
+.menu-section .menu-section-info{
+    width:95%;
+}
+
 .menu-section .menu-section-txt{
     display:flex;
     justify-content:space-between;
     align-items:center;
     font-size:15px;
     margin-top:5px;
-    width:95%;
+    width:90%;
 
     position:relative;
 }
@@ -117,6 +121,7 @@
     justify-content: flex-start;
     width:90%;
     margin-top:5px;
+    margin-left:15px;
 }
 
 .menu-section .menu-section-tags .menu-section-tag{
@@ -131,6 +136,15 @@
     width: 3rem;
 }
 
+.other-menu-section .other-menu-section-infos{
+    width:95%;
+}
+
+.other-menu-section .other-menu-section-infos .other-menu-section-info{
+    width:100%;
+}
+
+
 .map-section{
     margin-top:30px;
     width:18rem;
@@ -141,3 +155,4 @@
 
     border-radius:10px;
 }
+
