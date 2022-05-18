@@ -45,10 +45,13 @@
 .store-info .store-info__header,
 .menu-section .menu-section__header{
     align-self: flex-start;
-    margin-left:.5rem;
+    margin-left:0.5rem;
 
     font-weight:bolder;
     font-size:25px;
+
+    
+    box-shadow: inset 0 -10px 0 #FFE283; 
 }
 
 .store-info .store-info-section{
@@ -94,39 +97,44 @@
     align-items:center;
     font-size:15px;
     margin-top:5px;
-}
-.menu-section .select-menu-section-txt{
-    box-shadow: inset 0 -10px 0 #D9FCDB; 
+    width:95%;
+
+    position:relative;
 }
 
 .menu-section .menu-section-txt .menu-section__name{
-
+    z-index:-1;
 }
 
-.menu-section .menu-section-txt .menu-section-tags{
+
+.menu-section .menu-section-txt .menu-section__price{
+    z-index:-1;    
+}
+
+.menu-section .menu-section-tags{
     display:flex;
     flex-direction:row;
     justify-content: flex-start;
+    width:90%;
+    margin-top:5px;
 }
 
-.menu-section .menu-section-txt .menu-section-tags .menu-section-tag{
+.menu-section .menu-section-tags .menu-section-tag{
     margin-left:2px;
     display: inline-block;
-    width: 18%;
     background-color: #FFE283;
     text-align: center;
     color: black;
     border-radius: 10px;
-}
-
-.menu-section .menu-section-txt .menu-section__price{
-    
+    font-size:0.7rem;
+    font-weight:bold;
+    width: 3rem;
 }
 
 .map-section{
     margin-top:30px;
-    width:80%;
-    height:80%;
+    width:18rem;
+    height:18rem;
 
     background-color:gray;
     border:3px solid black;

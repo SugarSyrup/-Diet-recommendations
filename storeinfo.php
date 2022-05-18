@@ -1,3 +1,20 @@
+<?php
+  $conn = mysqli_connect(
+    'localhost',
+    'nabij',
+    'gyeon3542!',
+    'nabij');
+    
+  echo $_GET['name'];
+  echo $_GET['flag'];
+    
+  function php_func($storename){
+    $sql = "SELECT * FROM storeinfo WHERE 가게이름='" + $storename + "'";
+    $result = mysqli_query($conn, $sql);
+    echo ("<script language=javascript> getstore($result);</script>");
+  }
+?>
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -78,11 +95,14 @@
       href="images/logo/favicon//favicon-16x16.png"
     />
     <link rel="manifest" href="images/logo/favicon//manifest.json" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    
     <meta name="msapplication-TileColor" content="#ffffff" />
     <meta
       name="msapplication-TileImage"
       content="images/logo/favicon//ms-icon-144x144.png"
     />
+
     <meta name="theme-color" content="#ffffff" />
   </head>
   <body>
@@ -116,37 +136,13 @@
         <span class="store-info-place__txt"> 부산 사상구 대동로 63 (우)47050</span>
       </section>
       <section class="store-info-charge store-info-section">
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          class="h-6 w-6"
-          fill="none"
-          viewBox="0 0 24 24"
-          stroke="currentColor"
-          stroke-width="2"
-        >
-          <path
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"
-          />
-        </svg>
+      <i class="fa-solid fa-motorcycle"></i>
         <span class="store-info-charge__txt store-info-charge__Dtxt"></span>
       </section>
       <section class="store-info-charge store-info-section">
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          class="h-6 w-6"
-          fill="none"
-          viewBox="0 0 24 24"
-          stroke="currentColor"
-          stroke-width="2"
-        >
-          <path
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"
-          />
-        </svg>
+      <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+  <path stroke-linecap="round" stroke-linejoin="round" d="M4 7v10c0 2.21 3.582 4 8 4s8-1.79 8-4V7M4 7c0 2.21 3.582 4 8 4s8-1.79 8-4M4 7c0-2.21 3.582-4 8-4s8 1.79 8 4m0 5c0 2.21-3.582 4-8 4s-8-1.79-8-4" />
+</svg>
         <span class="store-info-charge__txt store-info-charge__Ltxt"></span>
       </section>
       <section class="store-info-number store-info-section">
@@ -171,10 +167,10 @@
     <section class="select-menu-section menu-section">
       <span class="select-menu-section__header menu-section__header">메뉴</span>
       <section class="select-menu-section-txt menu-section-txt">
-        <span class="select-menu-section-txt__name menu-section__name"></span>
-        <section class="select-menu-section-tags menu-section-tags"></section>
+          <span class="select-menu-section-txt__name menu-section__name"></span>
         <span class="select-menu-section-txt__price menu-section__price"></span>
       </section>
+      <section class="select-menu-section-tags menu-section-tags"></section>
     </section>
 
     <section class="other-menu-section menu-section">
@@ -186,8 +182,15 @@
       </section>
     </section>
 
-    <section class="map-section"></section>
+    <section class="map-section" id="map-section"></section>
 
-    <script src="script/storeinfo.js"></script>
+
+    <span id="php_code"> </span>
+    <script src="script/storeinfo.js"></script>    
+    <script
+      type="text/javascript"
+      src="https://dapi.kakao.com/v2/maps/sdk.js?appkey=33aaea6470e115b9de010a37d587db78&libraries=services"
+    ></script>
+    <script src="script/Map.js"></script>
   </body>
 </html>
