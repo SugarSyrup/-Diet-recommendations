@@ -27,15 +27,3 @@
 
    echo json_encode(array("result"=>$result_data),JSON_UNESCAPED_UNICODE);
 ?>
-
-
-
-<!-- 
-// $index = $_GET['index'];
-
-// $desc = ['Best Friend', 'Favorite Language', 'Best Musician'];
-// $name = ['Aram Kim', 'Python', 'IU'];
-
-// $json = json_encode(array('desc' => $desc[$index], 'name' => $name[$index]));
-
-// echo($json); -->

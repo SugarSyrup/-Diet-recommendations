@@ -99,10 +99,11 @@
 
     <div id="menu-btn" class="fas fa-bars"></div>
     <section class="charge-section navbar">
+      <span class="charge-section__header">음식 가격</span>
       <section class="range-values">
-        <span>0</span>
-        <span class="range-middle">25,000</span>
-        <span>50,000</span>
+        <span class="range-value">0</span>
+        <span class="range-middle range-value__accent">25,000</span>
+        <span class="range-value">50,000</span>
       </section>
       <input class="rangeInput" id="rangeInput" type="range" min="0" max="10" step="1" />
     </section>

@@ -132,7 +132,7 @@ var milkFlag = false;
 
 function fruitFlaging(){
   if(fruitFlag){
-    fruitTrue.style.backgroundColor="#97BC62";
+    fruitTrue.style.backgroundColor="#FFE283";
     fruitTrue.style.fontWeight="bolder";
     fruitTrue.style.bolder="none";
 
@@ -141,7 +141,7 @@ function fruitFlaging(){
     fruitFalse.style.bolder=".5px solid #dadada";    
   }
   else{
-    fruitFalse.style.backgroundColor="#97BC62";
+    fruitFalse.style.backgroundColor="#FFE283";
     fruitFalse.style.fontWeight="bolder";
     fruitFalse.style.bolder="none";
 
@@ -153,7 +153,7 @@ function fruitFlaging(){
 
 function milkFlaging(){
   if(milkFlag){
-    milkTrue.style.backgroundColor='#97BC62';
+    milkTrue.style.backgroundColor='#FFE283';
     milkTrue.style.fontWeight="bolder";
     milkTrue.style.bolder="none";
 
@@ -162,7 +162,7 @@ function milkFlaging(){
     milkFalse.style.bolder=".5px solid #dadada";    
   }
   else{
-    milkFalse.style.backgroundColor="#97BC62";
+    milkFalse.style.backgroundColor="#FFE283";
     milkFalse.style.fontWeight="bolder";
     milkFalse.style.bolder="none";
 
@@ -226,3 +226,38 @@ btn.addEventListener('click',function(event){
   localStorage.setItem("values", JSON.stringify(values));
   location.href='result.html';
 })
+
+var rangeInputArray = document.getElementsByClassName('rangeInput');
+for(var i = 0; i<rangeInputArray.length ; i++){
+  rangeInputArray[i].addEventListener('input',function(event){
+    event.target.parentElement.querySelector('.range-value__accent').innerText = event.target.value;
+    // console.log($('.rangeInput').offset().left);
+    // console.log($('.rangeInput').offset().top);
+  });
+}
+
+
+$( '.main-content input' ).on( 'input', function( ) {
+  var value =  100 / $(this).attr('max');
+  $( this ).css( 'background', 'linear-gradient(to right, #FFE283 0%, #FFE283 '+value * this.value +'%, #fff ' +value *  this.value + '%, white 100%)' );
+} );
+
+/*toast message */
+
+
+
+let removeToast;
+
+function toast(string) {
+    const toast = document.getElementById("toast");
+
+    toast.classList.contains("reveal") ?
+        (clearTimeout(removeToast), removeToast = setTimeout(function () {
+            document.getElementById("toast").classList.remove("reveal")
+        }, 1000)) :
+        removeToast = setTimeout(function () {
+            document.getElementById("toast").classList.remove("reveal")
+        }, 1000)
+    toast.classList.add("reveal"),
+        toast.innerText = string;
+}

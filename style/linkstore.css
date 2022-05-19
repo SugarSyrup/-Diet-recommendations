@@ -5,18 +5,19 @@
 }
 
 .header .title{
-    color:#97BC62;
+    color:#FFCF49;
     font-weight:bolder;
 }
 
 .charge-section{
-    width:90%;
+    width:95%;
 }
 
 .range-values{
     display:flex;
     justify-content: space-between;
-    width:100%;
+    width:90%;
+    margin-top:7px;
 }
 
 .range-middle{
@@ -24,7 +25,7 @@
 }
 
 .rangeInput{
-    width:100%;
+    width:90%;
 }
 
 @keyframes hideSplashScreen{
@@ -94,12 +95,55 @@
     border-bottom:var(--border); */
     display:none;
     clip-path: polygon(0 0, 100% 0, 100% 0, 0 0);
-    transition: 1s linear;
-    transition-duration: 10s;
+    transition: 3s linear;
 
     margin-top:10px;
 }
 
 .navbar.active{
     clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
+    display:flex;
+    flex-direction:column;
+    align-items: center;
+
+    border-bottom:2px solid rgb(179, 179, 179);
+}
+
+
+/* @keyframes fadeout {
+    from {
+        opacity: 1;
+    }
+    to {
+        opacity: 0;
+    }
+} */
+
+
+/*input:range*/
+input[type="range"] {
+    background: linear-gradient(to right, #FFE283 0%, #FFE283 50%, rgb(236, 236, 236) 50%, rgb(236, 236, 236) 100%);
+    border-radius: 8px;
+    outline: none; 
+    transition: background 450ms ease-in;
+    
+    -webkit-appearance: none;
+    accent-color:#ffca1d;
+}
+
+.charge-section .range-values .range-value{
+    color:gray;
+    font-size:14px;
+}
+
+.charge-section .range-values .range-value__accent{
+    font-weight:bold;
+}
+
+.charge-section .charge-section__header{
+    font-size:17px;
+    font-weight:bold;
+
+    align-self: flex-start;
+    margin-left:3px;
 }

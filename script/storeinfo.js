@@ -8,6 +8,7 @@ $.ajax({
         storename: storeinfo.가게이름,
     }
 }).done(function(data) {
+    //console.log(data);
    var datas = JSON.parse(data);
    datas.result.forEach(element => {
        // $lsection = $('<section class="other-menu-section-txt menu-section-txt"></section>');
@@ -49,6 +50,10 @@ $.ajax({
            }
            
        });
+       var NutritionFacts = document.createElement('span');
+        NutritionFacts.innerHTML = "영양정보";
+        NutritionFacts.className = "other-menu-section-tag_Nutrition menu-section-tag_Nutrition menu-section-tag";
+        txtTags.appendChild(NutritionFacts);
 
        var txtPrice = document.createElement('span');
        txtPrice.className = "other-menu-section-txt__price menu-section__price";
@@ -100,34 +105,36 @@ document.querySelector('.select-menu-section-txt__price').innerHTML = storeinfo.
 
 var tags = document.querySelector('.select-menu-section-tags');
 storeinfo.분류.forEach(element => {
-    if(ele != ""){
+    if(element != ""){
         var ele = document.createElement('span');
         ele.innerHTML = element;
         ele.className = "select-menu-section-tag menu-section-tag";
         tags.appendChild(ele);
     }
 });
-
 var NutritionFacts = document.createElement('span');
-NutritionFacts.innterHTML = "영양정보";
-ele.className = "select-menu-section-tag_Nutrition menu-section-tag_Nutrition";
+NutritionFacts.innerHTML = "영양정보";
+NutritionFacts.className = "select-menu-section-tag_Nutrition menu-section-tag_Nutrition menu-section-tag";
+tags.appendChild(NutritionFacts);
+
+
 
 /* tag 길이 정리 */
 var retags = document.getElementsByClassName('menu-section-tag');
 
 for(var i = 0; i < retags.length; i++){
-    console.log(tags[i]);
-    if(tags[i].innerHTML == ''){
-        tags[i].style.display = 'none';
+    console.log(retags[i]);
+    if(retags[i].innerHTML == ''){
+        retags[i].style.display = 'none';
     }
-    else if(tags[i].innerHTML == '탄수화물'){
-        tags[i].style.width = '4rem';
+    else if(retags[i].innerHTML == '탄수화물'){
+        retags[i].style.width = '4rem';
     }
-    else if(tags[i].innerHTML == '지방'){
-        tags[i].style.width = '2rem';
+    else if(retags[i].innerHTML == '지방'){
+        retags[i].style.width = '2rem';
     }
-    else if(tags[i].innerHTML == '비타민 무기질'){
-        tags[i].style.width = '5rem';
+    else if(retags[i].innerHTML == '비타민 무기질'){
+        retags[i].style.width = '5rem';
     }
 }
 
@@ -143,3 +150,8 @@ if(headerTxt.innerHTML.length >= 9){
 } else if(headerTxt.innerHTML.length >= 17){
     headerTxt.style.fontSize="15px";
 }
+
+var NutritionFactsSelect = document.querySelector(".select-menu-section-tag_Nutrition");
+NutritionFactsSelect.addEventListener('click', function(event){
+    
+})

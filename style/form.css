@@ -1,26 +1,3 @@
-input{
-    border:none;
-}
-
-input[type=range]{
-    -webkit-appearance: none;
-    height:50%;
-    border-radius:15px;
-}
-
-input[type=range]:focus::-ms-fill-lower{ 
-    background: red;
-    border: 0.2px solid #010101; 
-    border-radius: 2.6px; 
-    box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
-}
-
-input[type=range]:focus::-ms-fill-upper{ 
-    background: pink; 
-}
-
-
-
 /* header */
 .header{
     width:100%;
@@ -29,9 +6,10 @@ input[type=range]:focus::-ms-fill-upper{
 }
 
 .header .title{
-    color:#2C5F2D;
+    color:#FFCF49;
     font-weight:bolder;
 }
+
 
 /* under - header */
 .under-header{
@@ -57,13 +35,42 @@ input[type=range]:focus::-ms-fill-upper{
     border-bottom: 2px solid gray;
 }
 
+.main-content .grains{
+    margin-top:0px;
+}
+
+.main-content .checkboxform .checkbox-title{
+    font-size:17px;
+    font-weight:bolder;
+}
+
+.main-content .checkboxform .defaultRange{
+    margin-top:5px;
+}
+
+.main-content .checkboxform .defaultRange .range-values .range-value{
+    color:gray;
+    font-size:14px;
+}
+
+.main-content .checkboxform .defaultRange .range-values .range-value__accent{
+    font-weight:bold;
+}
+
 .main-content .checkboxform input[type="checkbox"] {
-    accent-color:#2C5F2D;
+    accent-color:#FFCF49;
 }
 
 .main-content .checkboxform input[type="range"] {
-    accent-color:#97BC62;
+    background: linear-gradient(to right, #FFE283 0%, #FFE283 50%, #fff 50%, #fff 100%);
+    border-radius: 8px;
+    outline: none; 
+    transition: background 450ms ease-in;
+    
+    -webkit-appearance: none;
+    accent-color:#ffca1d;
 }
+
 
 
 
@@ -121,7 +128,7 @@ input[type=range]:focus::-ms-fill-upper{
 }
 
 .buttons .form-button{
-    background-color: #97BC62;
+    background-color: #FFE283;
     color:black;
 
     outline:none;
@@ -146,4 +153,30 @@ input[type=range]:focus::-ms-fill-upper{
 .buttons .form-button:hover{
     cursor:pointer;
     animation: hoverBigger 1s ease-in-out forwards;
+}
+
+
+/* toast message */
+
+#toast {
+    position: fixed;
+    bottom: 30px;
+    left: 50%;
+    padding: 15px 20px;
+    transform: translate(-50%, 10px);
+    border-radius: 30px;
+    overflow: hidden;
+    font-size: .8rem;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity .5s, visibility .5s, transform .5s;
+    background: rgba(0, 0, 0, .35);
+    color: #fff;
+    z-index: 10000;
+}
+
+#toast.reveal {
+    opacity: 1;
+    visibility: visible;
+    transform: translate(-50%, 0)
 }

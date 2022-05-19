@@ -122,6 +122,8 @@
     width:90%;
     margin-top:5px;
     margin-left:15px;
+
+    position:relative;
 }
 
 .menu-section .menu-section-tags .menu-section-tag{
@@ -135,6 +137,18 @@
     font-weight:bold;
     width: 3rem;
 }
+
+.menu-section .menu-section-tags .menu-section-tag_Nutrition{
+    position:absolute;
+    right:0;
+    background-color:lightgray;
+}
+
+.menu-section .menu-section-tags .menu-section-tag_Nutrition:hover{
+    background-color:#FFE283;
+}
+
+
 
 .other-menu-section .other-menu-section-infos{
     width:95%;

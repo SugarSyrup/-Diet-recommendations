@@ -20,12 +20,10 @@ rangeinput.addEventListener('change',function(event){
 function refreshList(targetprice){
     for(var i = 0; i < MenuChargelist.length; i++){ 
         if(parseInt(MenuChargelist[i].attributes.value.value) > targetprice) {
-            console.log(parseInt(MenuChargelist[i].attributes.value.value) + ">" + targetprice);
             MenuChargelist[i].parentNode.parentNode.style.display = "none";
         }
         else{
             if(MenuChargelist[i].parentNode.parentNode.className != "store-info abs-none"){
-                console.log(parseInt(MenuChargelist[i].attributes.value.value) + "<" + targetprice);
                 MenuChargelist[i].parentNode.parentNode.style.display = "flex";
             }
         }
@@ -139,9 +137,7 @@ function DefaultRefresh(){
     var defaulttagflag = false;
     for(var j = 0; j < ids.length; j++){
         for(var i = 0; i < tags.length ; i++){
-            console.log(tags[i].parentNode.childNodes[1].textContent);
             tags[i].childNodes.forEach(function(element){
-                console.log(i +"]tags : " + element.textContent);
                 if(getResult[element.textContent] == "부족"){
                     defaulttagflag = true;
                 }
@@ -163,7 +159,6 @@ function DefaultRefresh(){
 
      for(var z = 0; z < Diliverylist.length; z++){
          if(Diliverylist[z].attributes.value.value == '-1'){
-             console.log(Diliverylist[z].innerHTML);
              Diliverylist[z].innerHTML = '배달 X';
 
          }
@@ -180,9 +175,19 @@ menu.onclick = () =>{
     
     navbar.classList.toggle('active');
     if(navbar.className == "charge-section navbar active"){
-        navbar.style.display = "block";
+        navbar.style.display = "flex";
     }
     else{
         navbar.style.display = "none";
     }
 }
+
+/* range value */
+document.querySelector('.rangeInput').addEventListener('input',function(event){
+    document.querySelector('.range-value__accent').innerText = (event.target.value*5000).toLocaleString('ko-KR');
+
+    /* input color */
+    var gradient_value = 100 / event.target.attributes.max.value;
+    event.target.style.background = 'linear-gradient(to right, #FFE283 0%, #FFE283 '+gradient_value * event.target.value +'%, rgb(236, 236, 236) ' +gradient_value *  event.target.value + '%, rgb(236, 236, 236) 100%)';
+});
+  
