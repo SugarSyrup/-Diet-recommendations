@@ -1,5 +1,6 @@
 var storeinfo = JSON.parse(localStorage.getItem("store-info"));
 
+
 //jquery ajax get DB from php
 $.ajax({
     url: "storeinfo.php",
@@ -8,8 +9,9 @@ $.ajax({
         storename: storeinfo.가게이름,
     }
 }).done(function(data) {
-    //console.log(data);
    var datas = JSON.parse(data);
+   //var datas = datad.slice(0,1);
+
    datas.result.forEach(element => {
        // $lsection = $('<section class="other-menu-section-txt menu-section-txt"></section>');
        // $lsectionTags = $('<section class="other-menu-section-tags menu-section-tags"></section>');
@@ -50,10 +52,52 @@ $.ajax({
            }
            
        });
-       var NutritionFacts = document.createElement('span');
-        NutritionFacts.innerHTML = "영양정보";
-        NutritionFacts.className = "other-menu-section-tag_Nutrition menu-section-tag_Nutrition menu-section-tag";
-        txtTags.appendChild(NutritionFacts);
+       var oNutritionFacts = document.createElement('span');
+        oNutritionFacts.innerHTML = "영양정보";
+        oNutritionFacts.className = "other-menu-section-tag_Nutrition menu-section-tag_Nutrition menu-section-tag";
+        txtTags.appendChild(oNutritionFacts);
+        oNutritionFacts.addEventListener('click',function(event){
+            console.log($(event.target).offset().left);
+            console.log($(event.target).offset().top);
+            $("#toast").offset({
+                left : $(event.target).offset().left-130,
+                top : $(event.target).offset().top+15
+            });
+            console.log(storeinfo.가게이름);
+            console.log(element.menu);
+            
+            $.ajax({
+                url: "menuinfo.php",
+                type: "get",
+                data: {
+                    storename: storeinfo.가게이름,
+                    storemenu: element.menu,
+                }
+            }).done(function(odata) {
+                while(document.querySelector('.td')){
+                   document.querySelector('.td').remove();
+                }
+                var odatas = JSON.parse(odata);
+                var odatad = odatas.result[0];
+                for(var g = 0; g<odatad.length; g++){
+                    var tr = document.querySelector('.tr');
+                    var td = document.createElement('td');
+                    console.log('Nutrition Facts');
+                    console.log(parseFloat(odatad[g]).toFixed(2) == "-1.00");
+                    if(parseFloat(odatad[g]).toFixed(2) == "-1.00"){
+                        td.innerText = "-";    
+                    }
+                    else{
+                        td.innerText = parseFloat(odatad[g]).toFixed(2);
+                    }
+                    td.className = 'td';
+                    tr.appendChild(td);
+                }
+                var table = document.querySelector('table');
+                table.appendChild(tr);
+            });
+            toast();
+        });
 
        var txtPrice = document.createElement('span');
        txtPrice.className = "other-menu-section-txt__price menu-section__price";
@@ -75,8 +119,42 @@ $.ajax({
    })
 });
 
+let removeToast;
+function toast() {
+    const toast = document.getElementById("toast");
 
+    // if(toast.classList.contains("reveal")){
+    //     (clearTimeout(removeToast), removeToast = setTimeout(function () {
+    //         document.getElementById("toast").classList.remove("reveal")
+    //     }, 5000)) } else{
+    //     removeToast = setTimeout(function () {
+    //         document.getElementById("toast").classList.remove("reveal")
+    //     }, 5000)
+    // }
+    toast.classList.add("reveal")
+}
 
+document.addEventListener('touchstart',function(event){
+    if(event.target.innerHTML == "영양정보"){
+        console.log('if');
+    }else{
+        console.log('else');
+        if(document.getElementById("toast").className == 'reveal'){
+            document.getElementById("toast").classList.remove("reveal");
+        }
+    }
+})
+
+document.addEventListener('click',function(event){
+    if(event.target.innerHTML == "영양정보"){
+        console.log('if');
+    }else{
+        console.log('else');
+        if(document.getElementById("toast").className == 'reveal'){
+            document.getElementById("toast").classList.remove("reveal");
+        }
+    }
+})
 // var index = 0;
 
 //         $.ajax({
@@ -116,7 +194,46 @@ var NutritionFacts = document.createElement('span');
 NutritionFacts.innerHTML = "영양정보";
 NutritionFacts.className = "select-menu-section-tag_Nutrition menu-section-tag_Nutrition menu-section-tag";
 tags.appendChild(NutritionFacts);
+NutritionFacts.addEventListener('click',function(event){
+    console.log($(event.target).offset().left);
+    console.log($(event.target).offset().top);
+    $("#toast").offset({
+        left : $(event.target).offset().left-130,
+        top : $(event.target).offset().top+15
+    });
 
+    $.ajax({
+        url: "menuinfo.php",
+        type: "get",
+        data: {
+            storename: storeinfo.가게이름,
+            storemenu: storeinfo.메뉴,
+        }
+    }).done(function(odata) {
+        while(document.querySelector('.td')){
+           document.querySelector('.td').remove();
+        }
+        var odatas = JSON.parse(odata);
+        var odatad = odatas.result[0];
+        for(var g = 0; g<odatad.length; g++){
+            var tr = document.querySelector('.tr');
+            var td = document.createElement('td');
+            console.log('Nutrition Facts');
+            console.log(parseFloat(odatad[g]).toFixed(2) == "-1.00");
+            if(parseFloat(odatad[g]).toFixed(2) == "-1.00"){
+                td.innerText = "-";    
+            }
+            else{
+                td.innerText = parseFloat(odatad[g]).toFixed(2);
+            }
+            td.className = 'td';
+            tr.appendChild(td);
+        }
+        var table = document.querySelector('table');
+        table.appendChild(tr);
+    });
+    toast();
+});
 
 
 /* tag 길이 정리 */

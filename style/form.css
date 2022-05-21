@@ -155,28 +155,96 @@
     animation: hoverBigger 1s ease-in-out forwards;
 }
 
+/* dialog */
 
-/* toast message */
-
-#toast {
-    position: fixed;
-    bottom: 30px;
-    left: 50%;
-    padding: 15px 20px;
-    transform: translate(-50%, 10px);
-    border-radius: 30px;
-    overflow: hidden;
-    font-size: .8rem;
-    opacity: 0;
-    visibility: hidden;
-    transition: opacity .5s, visibility .5s, transform .5s;
-    background: rgba(0, 0, 0, .35);
-    color: #fff;
-    z-index: 10000;
+dialog{ 
+    border: 1px solid lightgray;
+    width: 95%;
+    height: 80%;
+    border-radius: 20px;
+    padding: 0;
+    background-color:gray;
 }
 
-#toast.reveal {
-    opacity: 1;
-    visibility: visible;
-    transform: translate(-50%, 0)
+dialog .slider{
+    background: lightpink;
+    width: 100%;
+    height: 92%;
+    border-radius: 20px 20px 0px 0px;
+
+    touch-action: pan-y;
 }
+
+dialog .item{
+    width:100%;
+    height:100%;
+}
+
+dialog .buttons{
+    display:flex;
+    justify-content: space-between;
+    height:8%;
+    width:100%;
+    margin:0;
+}
+
+dialog .buttons .dialog_skip{
+    border: none;
+    width: 50%;
+    height: 100%;
+    border-bottom-left-radius: 20px;
+    padding:0;
+    border:1px solid lightgray;
+}
+
+dialog .buttons .dialog_next{    
+    border: none;
+    width: 50%;
+    height: 100%;
+    border-bottom-right-radius: 20px;
+    padding:0;
+    border:1px solid lightgray;
+}
+
+@keyframes slide-left {
+    from{
+        clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
+    }
+    to{
+        clip-path: polygon(0 0, 0 0, 0 100%, 0 100%);
+    }
+}
+
+@keyframes slide-left-back {
+    from{
+        clip-path: polygon(0 0, 0 0, 0 100%, 0 100%);
+    }
+    to{
+        clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
+    }
+}
+
+@keyframes slider-right {
+    form{
+        clip-path: polygon(100% 0, 0 0, 0 100%, 100% 100%);
+    }
+    to{
+        clip-path: polygon(100% 0, 100% 0, 100% 100%, 100% 100%);
+    }    
+}
+
+@keyframes slider-right {
+    form{
+        clip-path: polygon(100% 0, 100% 0, 100% 100%, 100% 100%);
+    }
+    to{
+        clip-path: polygon(100% 0, 0 0, 0 100%, 100% 100%);
+    }    
+}
+
+
+.item:nth-child(1) {background-color: rgb(152, 255, 121);}
+.item:nth-child(2) {background-color: rgb(121, 255, 237);}
+.item:nth-child(3) {background-color: rgb(121, 168, 255);}
+.item:nth-child(4) {background-color: rgb(195, 121, 255);}
+.item:nth-child(5) {background-color: rgb(255, 121, 222);}
