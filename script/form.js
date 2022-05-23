@@ -243,3 +243,13 @@ $( '.main-content input' ).on( 'input', function( ) {
 } );
 
 /*toast message */
+
+
+/* backbutton */
+document.querySelector('.backbutton').addEventListener('click',function (event){
+  location.href="home.html";
+})
+
+document.querySelector('.backbutton').addEventListener('touchstart',function (event){
+  location.href="home.html";
+})

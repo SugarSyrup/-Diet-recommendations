@@ -9,7 +9,8 @@ document.querySelector('.dialog_skip').addEventListener('click', function(event)
 
 
 document.querySelector('.dialog_next').addEventListener('click', function(event){
-
+  console.log("click");
+  document.querySelector('.dialog_prev_button').click();
 })
 
 var Slider = function(id, _web, _tab, _mobile, spacing){
@@ -54,7 +55,8 @@ var Slider = function(id, _web, _tab, _mobile, spacing){
     for(var i=0; i<items.length; i++){
       items[i].style.float = 'left';
       items[i].style.height = '100%';
-      items[i].style.width = (sliderItemWidth-spacing)+ 'px';
+      //items[i].style.width = (sliderItemWidth-spacing)+ 'px';
+      items[i].style.width = '300px';
       items[i].style['margin-right'] = spacing+'px'; // 간격
     }
   
@@ -111,14 +113,6 @@ var Slider = function(id, _web, _tab, _mobile, spacing){
         document.querySelector('#'+ id + ' .slider').style.left = left + 'px';
       },
       prev: function(){
-        left += sliderItemWidth;
-        var limit = 0;
-        if(left > limit){
-          left = limit;
-        }
-        document.querySelector('#'+ id + ' .slider').style.left = left + 'px';
-      },
-      next: function(){
         left -= sliderItemWidth;
         var limit = (-1) * sliderItemWidth * (totalCount - display);
         if(left < limit){
@@ -126,22 +120,15 @@ var Slider = function(id, _web, _tab, _mobile, spacing){
         }
         document.querySelector('#'+ id + ' .slider').style.left = left + 'px';
       },
-      auto: function(){
-        clearInterval(interval);
-        interval = setInterval(function(){
-          left -= sliderItemWidth;
-          var limit = (-1) * sliderItemWidth * (totalCount - display);
-          if(left < limit){
-            left = 0;
-          }
-          document.querySelector('#'+ id + ' .slider').style.left = left + 'px';
-        }, 2000)
-      },
-      stop: function(){
-        clearInterval(interval);
+      next: function(){
+        left += sliderItemWidth;
+        var limit = 0;
+        if(left > limit){
+          left = limit;
+        }
+        document.querySelector('#'+ id + ' .slider').style.left = left + 'px';
       }
     }
   }
   
   var slider = new Slider('slider', 4, 3, 1, 20);
-  slider.auto();

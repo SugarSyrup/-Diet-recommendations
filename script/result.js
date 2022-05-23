@@ -131,3 +131,13 @@ link_btn.addEventListener('click',function(event){
 
 
 localStorage.setItem("results", JSON.stringify(results));
+
+
+/* backbutton */
+document.querySelector('.backbutton').addEventListener('click',function (event){
+    location.href="form.html";
+})
+
+document.querySelector('.backbutton').addEventListener('touchstart',function (event){
+    location.href="form.html";
+})

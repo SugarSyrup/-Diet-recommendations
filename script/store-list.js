@@ -13,7 +13,7 @@ window.onload = function(){
 
 
 rangeinput.addEventListener('change',function(event){
-    targetprice = parseInt(event.target.value * 5000);
+    targetprice = parseInt(event.target.value * 3000);
     refreshList(targetprice);
 })
 
@@ -125,9 +125,17 @@ for(var i = 0; i < tag.length ; i++){
     tag[i].childNodes.forEach(function(element){
         if(element.textContent == "비타민 무기질"){
             element.style.width="28%";
+            element.style.backgroundColor="#A8DBA8";
         }
         else if(element.textContent == "탄수화물"){
             element.style.width="23%";
+            element.style.backgroundColor="lightgray";
+        }
+        else if(element.textContent == "단백질"){
+            element.style.backgroundColor="lightpink";
+        }
+        else if(element.textContent == "지방"){
+            element.style.backgroundColor="#FFE283";
         }
     })
 };
@@ -184,10 +192,19 @@ menu.onclick = () =>{
 
 /* range value */
 document.querySelector('.rangeInput').addEventListener('input',function(event){
-    document.querySelector('.range-value__accent').innerText = (event.target.value*5000).toLocaleString('ko-KR');
+    document.querySelector('.range-value__accent').innerText = (event.target.value*3000).toLocaleString('ko-KR');
 
     /* input color */
     var gradient_value = 100 / event.target.attributes.max.value;
     event.target.style.background = 'linear-gradient(to right, #FFE283 0%, #FFE283 '+gradient_value * event.target.value +'%, rgb(236, 236, 236) ' +gradient_value *  event.target.value + '%, rgb(236, 236, 236) 100%)';
 });
   
+
+/* backbutton */
+document.querySelector('.backbutton').addEventListener('click',function (event){
+    location.href="result.html";
+})
+
+document.querySelector('.backbutton').addEventListener('touchstart',function (event){
+    location.href="result.html";
+})

@@ -87,6 +87,20 @@
   </head>
   <body>
     <header class="header">
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        class="h-6 w-6 backbutton"
+        fill="none"
+        viewBox="0 0 24 24"
+        stroke="currentColor"
+        stroke-width="2"
+      >
+        <path
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          d="M10 19l-7-7m0 0l7-7m-7 7h18"
+        />
+      </svg>
       <span class="title">식단 개선</span>
       <section class="explain-section"></section>
     </header>
@@ -188,16 +202,14 @@
 
     <dialog id="dialog">
       <div class="slider" id="slider">
-        <div class="image image1">
-          <span>식단 개선 페이지에 대한 설명입니다!</span>
-          <span>해당 페이지는 두가지 유형이 있습니다.</span>
-          <span
-            >첫번째 영역은 곡류군, 고기 · 생선 · 계란 · 콩류, 야채류
-            입니다.</span
-          >
-          <span
-            >식사했다면 1점으로 계산하여 자신의 점수를 입력하면 됩니다.</span
-          >
+        <div class="item">
+          <section class="dialog-content">
+            <span>식단 개선 페이지 입니다.</span>
+            <span>해당 조사를 통해 일일 섭취 영양소의 기준을 통해</span>
+            <span>영양소의 부족/과잉 을 평가 합니다.</span>
+            <span>해당 페이지는 두가지 유형이 있습니다.</span>
+            <img src="images/dialog1.PNG" />
+          </section>
         </div>
         <div class="item"></div>
         <div class="item"></div>
@@ -208,8 +220,41 @@
 
       <section class="buttons">
         <button class="dialog_skip">닫기</button>
-        <button class="dialog_next">다음</button>
+        <button class="dialog_next" onclick="slider.next()">다음</button>
       </section>
+
+      <a href="#" onclick="slider.next()" class="dialog_next_button">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          class="h-6 w-6"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke="currentColor"
+          stroke-width="2"
+        >
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            d="M15 19l-7-7 7-7"
+          />
+        </svg>
+      </a>
+      <a href="#" onclick="slider.prev()" class="dialog_prev_button">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          class="h-6 w-6"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke="currentColor"
+          stroke-width="2"
+        >
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            d="M9 5l7 7-7 7"
+          />
+        </svg>
+      </a>
     </dialog>
 
     <script src="https://code.jquery.com/jquery-1.12.4.js"></script>

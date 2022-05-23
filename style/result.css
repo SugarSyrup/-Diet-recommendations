@@ -10,6 +10,12 @@
     font-weight:bolder;
 }
 
+.header svg{
+    position:absolute;
+    width:30px;
+    left:20px;
+}
+
 .main-content{
     display:flex;
     flex-direction:column;

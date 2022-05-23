@@ -94,6 +94,20 @@
   </head>
   <body>
     <header class="header">
+    <svg
+          xmlns="http://www.w3.org/2000/svg"
+          class="h-6 w-6 backbutton"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke="currentColor"
+          stroke-width="2"
+        >
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            d="M10 19l-7-7m0 0l7-7m-7 7h18"
+          />
+        </svg>
       <span class="title">추천 식단</span>
     </header>
 
@@ -102,8 +116,8 @@
       <span class="charge-section__header">음식 가격</span>
       <section class="range-values">
         <span class="range-value">0</span>
-        <span class="range-middle range-value__accent">25,000</span>
-        <span class="range-value">50,000</span>
+        <span class="range-middle range-value__accent">15,000</span>
+        <span class="range-value">30,000</span>
       </section>
       <input class="rangeInput" id="rangeInput" type="range" min="0" max="10" step="1" />
     </section>

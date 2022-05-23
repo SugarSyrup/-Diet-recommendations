@@ -40,12 +40,18 @@ $.ajax({
                txtTag.className = "other-menu-section-tag menu-section-tag";
                if(element == '탄수화물'){
                 txtTag.style.width = '4rem';
+                txtTag.style.backgroundColor="lightgray";
                }
                else if(element == '지방'){
                 txtTag.style.width = '2rem';
+                txtTag.style.backgroundColor="#FFE283";
                }
                else if(element == '비타민 무기질'){
                 txtTag.style.width = '5rem';
+                txtTag.style.backgroundColor="#A8DBA8";
+               }
+               else {
+                txtTag.style.backgroundColor="lightpink";
                }
 
                txtTags.appendChild(txtTag);
@@ -169,6 +175,7 @@ document.addEventListener('click',function(event){
 document.querySelector('.store-header__txt').innerHTML = storeinfo.가게이름;
 document.querySelector('.store-info-place__txt').innerHTML = storeinfo.주소;
 
+/*Dilivery Section*/
 if(storeinfo.배달비 == '-1'){
     document.querySelector('.store-info-charge__Dtxt').innerHTML = "배달 X" ;
     document.querySelector('.store-info-charge__Ltxt').parentElement.style.display = 'none';
@@ -176,6 +183,36 @@ if(storeinfo.배달비 == '-1'){
     document.querySelector('.store-info-charge__Dtxt').innerHTML = "배달비 : " + storeinfo.배달비 + "원";
     document.querySelector('.store-info-charge__Ltxt').innerHTML = "최소주문금액 : " + storeinfo.최소주문금액 + "원";
 }
+
+/*Call DataBase */
+$.ajax({
+    url: "diliverytag.php",
+    type: "get",
+    data: {
+        storename: storeinfo.가게이름,
+    }
+}).done(function(data) {
+    var datas = JSON.parse(data);
+    var diliverySection = document.querySelector('.store-info-charge');
+    var diliveryTagSection = document.createElement('section');
+    diliveryTagSection.className = "store-info-diliveryTags store-info-section";
+
+    var u = 0;
+    datas.result[0].forEach(element => {
+        if(element == ""){ u++; }
+        else {
+            var diliveryTag = document.createElement('span');
+            diliveryTag.className = "store-info-diliveryTags_tag diliveryTag" + u;
+            u++;
+            diliveryTag.innerHTML = element;
+            diliveryTagSection.appendChild(diliveryTag);
+        }
+    })        
+    diliverySection.after(diliveryTagSection);
+});
+
+
+
 document.querySelector('.store-info-number__txt').innerHTML = storeinfo.전화번호;
 
 document.querySelector('.select-menu-section-txt__name').innerHTML = storeinfo.메뉴;
@@ -246,12 +283,18 @@ for(var i = 0; i < retags.length; i++){
     }
     else if(retags[i].innerHTML == '탄수화물'){
         retags[i].style.width = '4rem';
+        retags[i].style.backgroundColor="lightgray";
     }
     else if(retags[i].innerHTML == '지방'){
         retags[i].style.width = '2rem';
+        retags[i].style.backgroundColor="#FFE283";
     }
     else if(retags[i].innerHTML == '비타민 무기질'){
         retags[i].style.width = '5rem';
+        retags[i].style.backgroundColor="#A8DBA8";
+    }
+    else if(retags[i].innerHTML == '단백질'){
+        retags[i].style.backgroundColor="lightpink";
     }
 }
 
@@ -271,4 +314,15 @@ if(headerTxt.innerHTML.length >= 9){
 var NutritionFactsSelect = document.querySelector(".select-menu-section-tag_Nutrition");
 NutritionFactsSelect.addEventListener('click', function(event){
     
+})
+
+
+
+/* backbutton */
+document.querySelector('.backbutton').addEventListener('click',function (event){
+    location.href="linkstore.php";
+})
+
+document.querySelector('.backbutton').addEventListener('touchstart',function (event){
+    location.href="linkstore.php";
 })
