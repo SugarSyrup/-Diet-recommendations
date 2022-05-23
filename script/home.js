@@ -62,7 +62,7 @@ form_button.addEventListener('click', function(evnet){
         };
 
         localStorage.setItem("userInfo", JSON.stringify(userInfo));
-
+        localStorage.setItem('site','normal');
 
         location.href='form.html';
     }
@@ -71,12 +71,14 @@ form_button.addEventListener('click', function(evnet){
 //5G 식사 버튼
 g_button.addEventListener('click', function(evnet){
     event.preventDefault();
+    localStorage.setItem('site','5g');
     location.href='linkstore.html';
 })
 
 //다이어트 버튼
 diet_button.addEventListener('click', function(evnet){
     event.preventDefault();
+    localStorage.setItem('site','diet');
     location.href='linkstore.html';
 })
 

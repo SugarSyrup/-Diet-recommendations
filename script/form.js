@@ -244,6 +244,12 @@ $( '.main-content input' ).on( 'input', function( ) {
 
 /*toast message */
 
+let removeToast;
+function toast() {
+    const toast = document.getElementById("toast");
+    
+    toast.classList.add("reveal")
+}
 
 /* backbutton */
 document.querySelector('.backbutton').addEventListener('click',function (event){
@@ -253,3 +259,7 @@ document.querySelector('.backbutton').addEventListener('click',function (event){
 document.querySelector('.backbutton').addEventListener('touchstart',function (event){
   location.href="home.html";
 })
+
+
+
+/*Explain Form*/

@@ -1,4 +1,4 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
@@ -94,20 +94,20 @@
   </head>
   <body>
     <header class="header">
-    <svg
-          xmlns="http://www.w3.org/2000/svg"
-          class="h-6 w-6 backbutton"
-          fill="none"
-          viewBox="0 0 24 24"
-          stroke="currentColor"
-          stroke-width="2"
-        >
-          <path
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            d="M10 19l-7-7m0 0l7-7m-7 7h18"
-          />
-        </svg>
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        class="h-6 w-6 backbutton"
+        fill="none"
+        viewBox="0 0 24 24"
+        stroke="currentColor"
+        stroke-width="2"
+      >
+        <path
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          d="M10 19l-7-7m0 0l7-7m-7 7h18"
+        />
+      </svg>
       <span class="title">추천 식단</span>
     </header>
 
@@ -119,71 +119,22 @@
         <span class="range-middle range-value__accent">15,000</span>
         <span class="range-value">30,000</span>
       </section>
-      <input class="rangeInput" id="rangeInput" type="range" min="0" max="10" step="1" />
+      <input
+        class="rangeInput"
+        id="rangeInput"
+        type="range"
+        min="0"
+        max="10"
+        step="1"
+      />
     </section>
 
-    <section class="store-info-section" id="store-info-section">
-        <?php
-          $conn = mysqli_connect(
-            'localhost', // 주소
-            'nabij',
-            'gyeon3542!',
-            'nabij'); // 데이터베이스 이름
-
-          $sql = "SELECT * FROM storeinfo order by rand()";
-          $result = mysqli_query($conn, $sql);
-
-          while( $jb_row = mysqli_fetch_array( $result ) ) {
-            echo
-              '<div class="store-info">'
-              . '<span class="store-info__Name" id="store-info__Name">'
-              . $jb_row[ '가게이름' ]
-              . '</span>'
-              . '<span class="store-info__Menu" id="store-info__Menu">'
-              . $jb_row[ '메뉴' ]
-              . '</span>'
-              . '<div class="store-info-charge">'
-              . '<span class="store-info__MenuCharge" id="store-info__MenuCharge" value="'
-              . $jb_row[ '음식가격' ]
-              . '"> 음식가격'
-              . $jb_row[ '음식가격' ]
-              . '원'
-              . '</span>'
-              . '<span class="store-info__LessDiliveryCharge display-none" id="store-info__LessDiliveryCharge">'
-              . $jb_row[ '최소주문금액' ]
-              . '</span>'
-              . '<span class="store-info__DiliveryCharge" id="store-info__DiliveryCharge" value="'
-              . $jb_row[ '배달비' ]
-              . '"> 배달비'
-              . $jb_row[ '배달비' ]
-              . '원'
-              . '</span>'
-              . '</div>'
-              . '<span class="store-info__Number display-none" id="store-info__Number">'
-              . $jb_row[ '전화번호' ]
-              . '</span>'
-              . '<span class="store-info__Address display-none" id="store-info__Address">'
-              . $jb_row[ '주소' ]
-              . '</span>'
-              . '<div class="store-info-tags">'
-              . '<span class="store-info__tag" id="store-info__tag1">'
-              . $jb_row[ '분류1' ]
-              . '</span>'
-              . '<span class="store-info__tag" id="store-info__tag2">'
-              . $jb_row[ '분류2' ]
-              . '</span>'
-              . '<span class="store-info__tag" id="store-info__tag3">'
-              . $jb_row[ '분류3' ]
-              . '</span>'
-              . '</div>'
-              . '</div>'
-            ;
-          }
-        ?>
-    </section>
+    <section class="store-info-section" id="store-info-section"></section>
 
     <section class="stores-section"></section>
 
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <script src="script/getdata.js"></script>
     <script src="script/faststorelist.js"></script>
   </body>
 </html>

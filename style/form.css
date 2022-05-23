@@ -4,17 +4,28 @@
     border-bottom: 2px solid gray;
     margin-bottom:5px;
     z-index:5;
+    display:flex;
+    flex-direction:row;
 }
 
 .header .title{
     color:#FFCF49;
     font-weight:bolder;
+    margin-left:20px;
 }
 
-.header svg{
+.header svg:nth-child(1){
     position:absolute;
     width:30px;
     left:20px;
+}
+
+.header svg:nth-child(3){
+    position: relative;
+    width: 20px;
+    left: 0;
+    top: 10px;
+    color:gray;
 }
 
 

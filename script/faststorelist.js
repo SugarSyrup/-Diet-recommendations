@@ -6,8 +6,12 @@ var targetprice;
 var ids = ["탄수화물","단백질","지방"];
 var getResult = JSON.parse(localStorage.getItem("results"));
 
+var Seperate = localStorage.getItem('site');
+
 window.onload = function(){    
-    DefaultRefresh();
+    if(Seperate == 'normal'){
+        DefaultRefresh();
+    }
 }
     
     // Mouse Down & Up
@@ -43,8 +47,13 @@ window.onload = function(){
     //      }
     //  })
 
-for(var i = 0; i < storelist.length; i++){ 
-    storelist[i].addEventListener('click', function(event){
+console.log(storelist);
+console.log(storelist.length);
+//storelist.forEach(element=>{
+for(var q = 0; q < 17; q++){ 
+    console.log(q);
+    console.log(storelist[q]);
+    storelist[q].addEventListener('click', function(event){
         if(event.target.parentNode.className == "store-info-charge"){
            SendValue(event.target.parentNode.parentNode.childNodes);
            location.href='storeinfo.html';
@@ -97,6 +106,7 @@ tmp['배달비'] = target[2].childNodes[2].attributes.value.value;
 tmp['전화번호'] = target[3].textContent;
 tmp['주소'] = target[4].textContent;
 tmp['분류'] = [target[5].childNodes[0].textContent,target[5].childNodes[1].textContent,target[5].childNodes[2].textContent];
+
 
 localStorage.setItem("store-info", JSON.stringify(tmp));    
 }
