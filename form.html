@@ -94,6 +94,7 @@
         viewBox="0 0 24 24"
         stroke="currentColor"
         stroke-width="2"
+        id="back"
       >
         <path
           stroke-linecap="round"
@@ -109,6 +110,7 @@
         viewBox="0 0 24 24"
         stroke="currentColor"
         stroke-width="2"
+        id="helpbutton"
       >
         <path
           stroke-linecap="round"
@@ -117,7 +119,82 @@
         />
       </svg>
 
-      <div id="toast"></div>
+      <div id="toast">
+        <section class="toast-content">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            class="h-6 w-6"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+            stroke-width="2"
+            id="toast-delete-button"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              d="M6 18L18 6M6 6l12 12"
+            />
+          </svg>
+          <section class="toast-content-table">
+            <table>
+              <thead>
+                <tr>
+                  <th>메뉴</th>
+                  <th>곡류군</th>
+                  <th class="th2">고기,생선,달걀,콩류</th>
+                  <th>채소류</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>검은콩밥</td>
+                  <td>1</td>
+                  <td>1</td>
+                  <td>-</td>
+                </tr>
+                <tr>
+                  <td>쇠고기미역국</td>
+                  <td>-</td>
+                  <td>1</td>
+                  <td>1</td>
+                </tr>
+                <tr>
+                  <td>닭볶음탕</td>
+                  <td>1</td>
+                  <td>1</td>
+                  <td>1</td>
+                </tr>
+                <tr>
+                  <td>시금치나물</td>
+                  <td>-</td>
+                  <td>-</td>
+                  <td>1</td>
+                </tr>
+                <tr>
+                  <td>배추김치</td>
+                  <td>-</td>
+                  <td>-</td>
+                  <td>1</td>
+                </tr>
+                <tr class="score">
+                  <td>점수</td>
+                  <td>2</td>
+                  <td>3</td>
+                  <td>4</td>
+                </tr>
+              </tbody>
+            </table>
+          </section>
+          <section class="toast-content-txt">
+            <span>곡류군 : 밥, 면, 빵, 떡, 구황작물, 묵, 시리얼</span>
+            <span
+              >고기,생선,달걀,콩류 : 고기, 생선, 오징어, 달걀, 콩, 두부</span
+            >
+            <span>채소류: 상추, 당근. 콩나물, 김, 김치, 미역, 버섯</span>
+          </section>
+        </section>
+      </div>
       <section class="explain-section"></section>
     </header>
 

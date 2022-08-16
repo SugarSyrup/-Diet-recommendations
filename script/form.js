@@ -260,6 +260,14 @@ document.querySelector('.backbutton').addEventListener('touchstart',function (ev
   location.href="home.html";
 })
 
+document.getElementById("helpbutton").addEventListener('click', function(event){
+    const toast = document.getElementById("toast");
+    toast.classList.add("reveal")
+});
+
 
 
 /*Explain Form*/
+document.querySelector('#toast-delete-button').addEventListener('click',function(event){
+  document.getElementById("toast").classList.remove("reveal");
+})

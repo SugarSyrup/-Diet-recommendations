@@ -125,6 +125,7 @@
 
 .menu-section .menu-section-txt .menu-section__price{
     z-index:-1;    
+    word-break:keep-all;
 }
 
 .menu-section .menu-section-tags{
@@ -156,7 +157,12 @@
     background-color:#FFE283;
 }
 
-
+.menu-section .menu-section-tags .menu-section-tag_Cal{
+    position:absolute;
+    right:0;
+    margin-top:-5px;
+    width:4rem;
+}
 .other-menu-section .other-menu-section-infos{
     width:95%;
 }

@@ -111,7 +111,7 @@ for(var i = 0; i < tag.length ; i++){
         }
         else if(element.textContent == "탄수화물"){
             element.style.width="23%";
-            element.style.backgroundColor="lightgray";
+            element.style.backgroundColor="lightblue";
         }
         else if(element.textContent == "단백질"){
             element.style.backgroundColor="lightpink";
@@ -185,9 +185,10 @@ document.querySelector('.rangeInput').addEventListener('input',function(event){
 
 /* backbutton */
 document.querySelector('.backbutton').addEventListener('click',function (event){
-    location.href="result.html";
+        location.href="result.html";
+    
 })
 
 document.querySelector('.backbutton').addEventListener('touchstart',function (event){
-    location.href="result.html";
+        location.href="result.html";
 })

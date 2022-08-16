@@ -121,7 +121,7 @@ for(var i = 0; i < tag.length ; i++){
         }
         else if(element.textContent == "탄수화물"){
             element.style.width="23%";
-            element.style.backgroundColor="lightgray";
+            element.style.backgroundColor="lightblue";
         }
         else if(element.textContent == "단백질"){
             element.style.backgroundColor="lightpink";

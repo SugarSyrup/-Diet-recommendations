@@ -9,12 +9,12 @@
 }
 
 .header .title{
-    color:#FFCF49;
+    color:#FFAD82;
     font-weight:bolder;
     margin-left:20px;
 }
 
-.header svg:nth-child(1){
+#back{
     position:absolute;
     width:30px;
     left:20px;
@@ -297,3 +297,81 @@ a {
 .item:nth-child(3) {background-color: rgb(121, 168, 255);}
 .item:nth-child(4) {background-color: rgb(195, 121, 255);}
 .item:nth-child(5) {background-color: rgb(255, 121, 222);}
+
+
+
+/* toast */
+#toast {
+    position: absolute;
+    padding: 5px 10px;
+    transform: translate(-50%, 10px);
+    border-radius: 15px;
+    overflow: hidden;
+    font-size: .8rem;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity .5s, visibility .5s, transform .5s;
+    background: rgba(0, 0, 0, .80);
+    color: #fff;
+    z-index: 10000;
+
+    top:10%;
+    left:50%;
+    width:90%;
+}
+
+#toast.reveal {
+    opacity: 1;
+    visibility: visible;
+    transform: translate(-50%, 0)
+}
+
+.toast-content{
+    display:flex;
+    flex-direction:column;
+    justify-content: space-between;
+}
+
+
+.toast-content svg{
+    display: inline-block;
+    align-self: flex-end;
+    
+    width:30px;
+}
+
+.toast-content .toast-content-table{
+    text-align:center;
+    font-size:15px;
+    margin-top:10px;
+}
+
+.toast-content .toast-content-table table{
+    border-collapse: collapse;
+}
+
+.toast-content .toast-content-table table tr{
+    line-height: 1.5rem;
+}
+
+.toast-content .toast-content-table .th2{
+    width:50%;
+}
+
+.toast-content .toast-content-table .score{
+    margin-top:5px;
+    border-top:1px solid white;
+}
+
+.toast-content .toast-content-txt{
+    display:flex;
+    flex-direction:column;
+    font-size:13px;
+
+    margin-top:20px;
+    margin-left:10px;
+}
+
+.toast-content .toast-content-txt span{
+    margin-bottom:5px;
+}

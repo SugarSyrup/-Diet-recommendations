@@ -6,8 +6,9 @@
      'nabij');
 
    $site = $_GET['site'];
+   $diet = "diet";
   
-   $sql = "SELECT * FROM $site" ;
+   $sql = "SELECT * FROM $site order by rand()" ;
    $result = mysqli_query($conn, $sql);
    $result_data = array();
    
@@ -21,6 +22,7 @@
       'address' => $row['주소'],
       'lessDiliveryCharge' => $row['최소주문금액'],
       'diliveryCharge' => $row['배달비'],
+      'cal' => $row['열량'],
      ));
   }
    

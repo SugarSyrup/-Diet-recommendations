@@ -97,7 +97,7 @@ for(var i = 0; i<scores.length;i++){
         createSpan2.innerHTML = scores[i];
         createSpan2.className = "result-score";
         if(scores[i] == "부족"){
-            createSpan2.style.color = "rebeccapurple";
+            createSpan2.style.color = "blue";
         }
         else{ 
             createSpan2.style.color = "red";
